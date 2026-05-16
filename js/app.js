@@ -20,7 +20,7 @@ let frameTimer = 0;
 let tiempo = 0;
 
 function animar() {
-    tiempo += 0.1;
+    tiempo += 0.05;
 
     // movimiento correcto
     x += velocidad * direccion;
@@ -55,12 +55,12 @@ function animar() {
 
 // idle
 function idleRandom() {
-    if (Math.random() < 0.01) {
+    if (Math.random() < 1.01) {
         sprite.style.backgroundImage = `url(${standFrame})`;
 
         setTimeout(() => {
             sprite.style.backgroundImage = `url(${walkFrames[0]})`;
-        }, 2000);
+        }, 200);
     }
 
     setTimeout(idleRandom, 500);
@@ -114,4 +114,4 @@ setInterval(() => {
     if (indice >= dialogos.length) indice = 0;
 
     document.getElementById("texto-dialogo").textContent = dialogos[indice];
-}, 3000);
+}, 10000);
